@@ -1,0 +1,3 @@
+[submodule "iqrf_core"]
+	path = iqrf_core
+	url = git://github.com/nandra/iqrf_class_core.git
