@@ -18,7 +18,7 @@ int temperature::write_read_spi_data(unsigned char *data, int data_len, int writ
     if (data_len > SPI_DATA_LENGTH)
         data_len = SPI_DATA_LENGTH;
 
-    ret_val = this->device->get_spi_cmd_data(data, data_len, write_read, 0);
+    ret_val = this->device->get_spi_cmd_data(data, data_len, write_read);
 
     return ret_val;
 }
