@@ -1,7 +1,7 @@
 #ifndef TEMPERATURE_H
 #define TEMPERATURE_H
 
-#include "iqrf_core/iqrf_dev.h"
+#include <iqrf.h>
 
 class temperature {
 public:
@@ -11,7 +11,7 @@ public:
     int init();
     int get_status();
 private:
-    iqrf_dev *device;
+    //iqrf_dev *device;
 
 
 };

@@ -35,7 +35,7 @@
      </font>
     </property>
     <property name="text">
-     <string>--C</string>
+     <string>-°C</string>
     </property>
    </widget>
   </widget>
