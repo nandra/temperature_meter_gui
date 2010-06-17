@@ -55,18 +55,19 @@ void MainWindow::update_temperature()
 
     default:
          if (stat >= 0x40 && stat <= 0x63) {
-             printf("SPI data %d\n", stat);
-             len = meter->write_read_spi_data(buff, stat, 0);
-              buff[len] = '\0';
+             printf("SPI data %x\n", stat);
+             len = meter->write_read_spi_data(buff, stat-0x40, 0);
+             printf("len = %d\n", len);
+             buff[len] = '\0';
               QString str;
 
               str.append((char *)&buff[0]);
-                QPixmap pixmap(16,16);
+                QPixmap pixmap(25,16);
                 pixmap.fill(Qt::transparent);
             QPainter painter(&pixmap);
             QString string;
             string = str;
-            painter.drawText(0,0,16,16,Qt::AlignHCenter | Qt::AlignVCenter, string);
+            painter.drawText(0,0,25,16,Qt::AlignHCenter | Qt::AlignVCenter, string);
 
             ico->setIcon(QIcon(pixmap));
 

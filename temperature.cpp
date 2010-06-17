@@ -15,10 +15,10 @@ int temperature::write_read_spi_data(unsigned char *data, int data_len, int writ
 {
     int ret_val = 0;
 
-    //if (data_len > SPI_DATA_LENGTH)
-    //    data_len = SPI_DATA_LENGTH;
+    if (data_len > 0x35)
+        data_len = 0x35;
 
-    ret_val = get_spi_cmd_data(data, data_len, write_read);
+    ret_val = read_write_spi_cmd_data(data, data_len, write_read);
 
     return ret_val;
 }
