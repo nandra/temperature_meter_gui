@@ -21,7 +21,7 @@ MainWindow::MainWindow(QWidget *parent)
         pixmap.fill(Qt::transparent);
         QPainter painter(&pixmap);
         QString string;
-        string = "-C";
+        string = "-°C";
         painter.drawText(0,0,16,16,Qt::AlignHCenter | Qt::AlignVCenter, string);
 
         ico->setIcon(QIcon(pixmap));
@@ -59,20 +59,21 @@ void MainWindow::update_temperature()
              len = meter->write_read_spi_data(buff, stat-0x40, 0);
              printf("len = %d\n", len);
              buff[len] = '\0';
-              QString str;
+             QString str;
 
-              str.append((char *)&buff[0]);
-                QPixmap pixmap(25,16);
-                pixmap.fill(Qt::transparent);
-            QPainter painter(&pixmap);
-            QString string;
-            string = str;
-            painter.drawText(0,0,25,16,Qt::AlignHCenter | Qt::AlignVCenter, string);
+             str.append((char *)&buff[0]);
+             QPixmap pixmap(25,16);
+             pixmap.fill(Qt::transparent);
+             QPainter painter(&pixmap);
+             QString string;
+             string = str;
+             painter.drawText(0,0,25,16,Qt::AlignHCenter | Qt::AlignVCenter, string);
 
-            ico->setIcon(QIcon(pixmap));
+             ico->setIcon(QIcon(pixmap));
 
-            ico->show();
-            ui->label->setText(str);
+             ico->show();
+
+             ui->label->setText(str);
          } else {
             printf("Unkown SPI response!\n");
          }
